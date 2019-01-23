@@ -7,12 +7,12 @@ $(document).ready(function () {
     var topics = ["Eiffel Tower", "Taj Mahal", "Colosseum"];
 
     //Get the topics from local storage
-    let current = JSON.parse(localStorage.getItem("topics"))
+    let current = JSON.parse(localStorage.getItem("topics"));
 
     //If it isn't there, set it to the original array
     if (!Array.isArray(current)) {
 
-        localStorage.setItem("topics", JSON.stringify(topics))
+        localStorage.setItem("topics", JSON.stringify(topics));
     }
 
     function displayImg() {
@@ -60,7 +60,7 @@ $(document).ready(function () {
 
         $("#display-buttons").empty();
 
-            let buttons = JSON.parse(localStorage.getItem("topics"))
+            let buttons = JSON.parse(localStorage.getItem("topics"));
 
             buttons.forEach(choice => {
 
@@ -95,10 +95,11 @@ $(document).ready(function () {
         form.reset();
         topics.push(input);
 
-        let top = JSON.parse(localStorage.getItem("topics"))
-        top.push(input)
+        let newTopics = JSON.parse(localStorage.getItem("topics"));
+        newTopics.push(input);
+        
         //Re-set the topics of local storage to the new array
-        localStorage.setItem("topics", JSON.stringify(top))
+        localStorage.setItem("topics", JSON.stringify(newTopics));
         renderButtons();
         return false;
     })
